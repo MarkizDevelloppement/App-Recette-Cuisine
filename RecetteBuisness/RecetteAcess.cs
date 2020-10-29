@@ -41,7 +41,7 @@ namespace RecetteBuisness
                         string origine    = dbReader.GetString(8);
 
                         // attente de la création de la class business
-                        .recette.add(id, titre, categorie, tempprepa, modprepa, nbrperson, ingredient, url, origine);
+                        //.recette.add(id, titre, categorie, tempprepa, modprepa, nbrperson, ingredient, url, origine);
 
                     }
 
