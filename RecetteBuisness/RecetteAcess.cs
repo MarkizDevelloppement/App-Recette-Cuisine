@@ -61,16 +61,21 @@ namespace RecetteBuisness
                 cmd.Parameters.AddWithValue("@categorie", r.categorie);
                 cmd.Parameters.AddWithValue("@tempsprepa", r.tempsprepa);
                 cmd.Parameters.AddWithValue("@modeprepa", r.modeprepa);
+                cmd.Parameters.AddWithValue("@nbrperson", r.nbrperson);
+                cmd.Parameters.AddWithValue("@ingredient", r.ingrediant);
+                cmd.Parameters.AddWithValue("@url", r.url);
+                cmd.Parameters.AddWithValue("@origine", r.origine);
 
+                bool result = cmd.ExecuteNonQuery() == 1;
+                cmd.Connection.Close();
+                return result;
             }
-
-
-
-                return false;
         }
 
-        public static void UpdateRecette()
+        public static void UpdateRecette(Recette r)
         {
+            string sql = "Update recette Set titre=@titre, categorie=@categorie, tempprepa=@tempprepa, modeprepa=@modeprepa, " +
+                         "nbrperson=@nbrperson, ingredient=@ingredient, url=@url, origine=@origine";
             
         }
 
