@@ -9,9 +9,13 @@ namespace RecetteBuisness
     {
         public static ObservableCollection<Recette> Recette { get; }
 
+        public static ObservableCollection<RecetteBuisness.Recette> roulotte { get; set; }
+
         static Business()
         {
-            Recette umukai = new Recette("Umu kai", "buffet", "6hr", "four local", "20 pers", "cochon, chèvre, banane, tao " ) ;
+            RecetteBuisness.Recette umukai = new RecetteBuisness.Recette("Umu kai", "buffet", "6hr", "four local", "20 pers", "cochon, chèvre, banane, tao " ) ;
+
+            roulotte = new ObservableCollection<RecetteBuisness.Recette>();
         }
     }
 }

@@ -10,20 +10,21 @@ namespace RecetteBuisness
         public String categorie { get; set; }
         public String tempsprepa { get; set; }
         public String modeprepa { get; set; }
-        public int nbrperson { get; set; }
-        public String ingrediant { get; set; }
+        public String nbrperson { get; set; }
+        public String ingredient { get; set; }
         public String url { get; set; }
         public String origine { get; set; }
 
-        public Recette(String titre, String categorie, String tempsprepa, String modeprepa, 
-                       int nbrperson, String ingrediant, String url, String origine)
+
+        public Recette(int id, String titre, String categorie, String tempsprepa, String modeprepa, 
+                       String nbrperson, String ingredient, String url, String origine)
         {
             this.titre = titre;
             this.categorie = categorie;
             this.tempsprepa = tempsprepa;
             this.modeprepa = modeprepa;
             this.nbrperson = nbrperson;
-            this.ingrediant = ingrediant;
+            this.ingredient = ingredient;
             this.url = url;
             this.origine = origine;
         }
