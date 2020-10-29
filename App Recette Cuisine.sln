@@ -5,7 +5,12 @@ VisualStudioVersion = 16.0.30523.141
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "App Recette Cuisine", "App Recette Cuisine\App Recette Cuisine.csproj", "{C5D68E31-09F1-4D6D-97A0-F369953F1A02}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RecetteBuisness", "RecetteBuisness\RecetteBuisness.csproj", "{2B8FC52F-BDB4-42DC-A703-D22E3190D09C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RecetteBuisness", "RecetteBuisness\RecetteBuisness.csproj", "{2B8FC52F-BDB4-42DC-A703-D22E3190D09C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{0BE17FC8-08BB-4767-B0A0-08D47F91A38D}"
+	ProjectSection(SolutionItems) = preProject
+		Document\recette.sql = Document\recette.sql
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
