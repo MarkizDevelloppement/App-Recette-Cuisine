@@ -33,15 +33,15 @@ namespace RecetteBuisness
                         int id            = dbReader.GetInt32(0);
                         string titre      = dbReader.GetString(1);
                         string categorie  = dbReader.GetString(2);
-                        string tempprepa  = dbReader.GetString(3);
-                        string modprepa   = dbReader.GetString(4);
-                        int nbrperson     = dbReader.GetInt32(5);
+                        string tempsprepa  = dbReader.GetString(3);
+                        string modeprepa   = dbReader.GetString(4);
+                        string nbrperson  = dbReader.GetString(5);
                         string ingredient = dbReader.GetString(6);
                         string url        = dbReader.GetString(7);
                         string origine    = dbReader.GetString(8);
 
                         // attente de la création de la class business
-                        //.recette.add(id, titre, categorie, tempprepa, modprepa, nbrperson, ingredient, url, origine);
+                        Business.roulotte.Add(new RecetteBuisness.Recette(0,titre, categorie, tempsprepa, modeprepa, nbrperson, ingredient, url, origine));
 
                     }
 
@@ -62,7 +62,7 @@ namespace RecetteBuisness
                 cmd.Parameters.AddWithValue("@tempsprepa", r.tempsprepa);
                 cmd.Parameters.AddWithValue("@modeprepa", r.modeprepa);
                 cmd.Parameters.AddWithValue("@nbrperson", r.nbrperson);
-                cmd.Parameters.AddWithValue("@ingredient", r.ingrediant);
+                cmd.Parameters.AddWithValue("@ingredient", r.ingredient);
                 cmd.Parameters.AddWithValue("@url", r.url);
                 cmd.Parameters.AddWithValue("@origine", r.origine);
 
