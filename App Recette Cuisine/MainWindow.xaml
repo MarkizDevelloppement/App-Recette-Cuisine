@@ -6,7 +6,9 @@
         xmlns:local="clr-namespace:App_Recette_Cuisine"
         mc:Ignorable="d"
         Title="App Recette" Height="450" Width="800">
-    <Grid>
-        
-    </Grid>
+    <DockPanel>
+        <Grid>
+
+        </Grid>
+    </DockPanel>
 </Window>
