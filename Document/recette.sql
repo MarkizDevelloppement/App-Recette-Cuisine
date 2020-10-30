@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : jeu. 29 oct. 2020 à 19:36
+-- Généré le : ven. 30 oct. 2020 à 01:09
 -- Version du serveur :  5.7.31
 -- Version de PHP : 7.3.21
 
@@ -29,17 +29,24 @@ SET time_zone = "+00:00";
 
 DROP TABLE IF EXISTS `recette`;
 CREATE TABLE IF NOT EXISTS `recette` (
-  `Id` int(155) NOT NULL AUTO_INCREMENT,
-  `Titre` varchar(255) NOT NULL,
-  `Categorie` varchar(255) NOT NULL,
-  `Tempprepa` varchar(255) NOT NULL,
-  `Modeprepa` varchar(256) NOT NULL,
-  `NbrPerson` int(155) NOT NULL,
-  `Ingredient` text NOT NULL,
-  `Url` varchar(255) NOT NULL,
-  `Origine` varchar(255) NOT NULL,
-  PRIMARY KEY (`Id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+  `id` int(155) NOT NULL AUTO_INCREMENT,
+  `titre` varchar(255) NOT NULL,
+  `categorie` varchar(255) NOT NULL,
+  `tempsprepa` varchar(255) NOT NULL,
+  `modeprepa` varchar(256) NOT NULL,
+  `nbrperson` varchar(255) NOT NULL,
+  `ingredient` text NOT NULL,
+  `url` varchar(255) NOT NULL,
+  `origine` varchar(255) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+
+--
+-- Déchargement des données de la table `recette`
+--
+
+INSERT INTO `recette` (`id`, `titre`, `categorie`, `tempsprepa`, `modeprepa`, `nbrperson`, `ingredient`, `url`, `origine`) VALUES
+(1, 'fafaru', 'poisson', '5mn', 'crue', '3', 'thon, eau de mer', '', 'polynesienne');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
