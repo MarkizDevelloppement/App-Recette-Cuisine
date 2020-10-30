@@ -26,5 +26,31 @@ namespace App_Recette_Cuisine
             InitializeComponent();
             Recette r;
         }
+
+        private void ButtonFiltre_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void ButtonADD_Click(object sender, RoutedEventArgs e)
+        {
+            WindowAdd wa = new WindowAdd(this);
+            wa.Show();
+        }
+
+        private void New_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void print_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Quit_Click(object sender, RoutedEventArgs e)
+        {
+            System.Windows.Application.Current.Shutdown();
+        }
     }
 }
