@@ -72,10 +72,27 @@ namespace RecetteBuisness
             }
         }
 
-        public static void UpdateRecette(Recette r)
+        public static bool UpdateRecette(Recette r)
         {
             string sql = "Update recette Set titre=@titre, categorie=@categorie, tempprepa=@tempprepa, modeprepa=@modeprepa, " +
                          "nbrperson=@nbrperson, ingredient=@ingredient, url=@url, origine=@origine";
+            using (MySqlCommand cmd = new MySqlCommand(sql, connection))
+            {
+                cmd.Connection.Open();
+                cmd.Parameters.AddWithValue("@titre", r.titre);
+                cmd.Parameters.AddWithValue("@categorie", r.categorie);
+                cmd.Parameters.AddWithValue("@tempsprepa", r.tempsprepa);
+                cmd.Parameters.AddWithValue("@modeprepa", r.modeprepa);
+                cmd.Parameters.AddWithValue("@nbrperson", r.nbrperson);
+                cmd.Parameters.AddWithValue("@ingredient", r.ingredient);
+                cmd.Parameters.AddWithValue("@url", r.url);
+                cmd.Parameters.AddWithValue("@origine", r.origine);
+
+                bool result = cmd.ExecuteNonQuery() == 1;
+                cmd.Connection.Close();
+                return result;
+
+            }
             
         }
 
