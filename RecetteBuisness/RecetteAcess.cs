@@ -42,7 +42,7 @@ namespace RecetteBuisness
                         string origine    = dbReader.GetString(8);
 
                         // attente de la création de la class business
-                        Business.roulotte.Add(new RecetteBuisness.Recette(0,titre, categorie, tempsprepa, modeprepa, nbrperson, ingredient, url, origine));
+                        Business.roulotte.Add(new Recette(0,titre, categorie, tempsprepa, modeprepa, nbrperson, ingredient, url, origine));
 
                     }
 
@@ -75,7 +75,7 @@ namespace RecetteBuisness
 
         public static bool UpdateRecette(Recette r)
         {
-            string sql = "Update recette Set titre=@titre, categorie=@categorie, tempprepa=@tempprepa, modeprepa=@modeprepa, " +
+            string sql = "Update recette Set titre=@titre, categorie=@categorie, tempsprepa=@tempsprepa, modeprepa=@modeprepa, " +
                          "nbrperson=@nbrperson, ingredient=@ingredient, url=@url, origine=@origine";
             using (MySqlCommand cmd = new MySqlCommand(sql, connection))
             {
