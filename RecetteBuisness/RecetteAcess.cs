@@ -51,6 +51,7 @@ namespace RecetteBuisness
         }
         public static bool InsertRecette(Recette r)
         {
+
             return false;
         }
 
