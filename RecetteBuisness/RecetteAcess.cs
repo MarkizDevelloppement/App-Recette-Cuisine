@@ -46,13 +46,27 @@ namespace RecetteBuisness
                     }
 
                 }
-
+                command.Connection.Close();
             }
         }
         public static bool InsertRecette(Recette r)
         {
+            string sql = "INSERT INTO recette(id, titre, categorie, tempsprepa, modprepa, nbrperson, ingredient, url, origine) " +
+                         "VALUEs (@id, @titre, @categorie, @tempsprepa, @modeprepa, @nbrprepa, @ingredient, @utrl, @origine)";
+            using (MySqlCommand cmd = new MySqlCommand(sql, connection))
+            {
+                cmd.Connection.Open();
+                cmd.Parameters.AddWithValue("@id", null);
+                cmd.Parameters.AddWithValue("@titre", r.titre);
+                cmd.Parameters.AddWithValue("@categorie", r.categorie);
+                cmd.Parameters.AddWithValue("@tempsprepa", r.tempsprepa);
+                cmd.Parameters.AddWithValue("@modeprepa", r.modeprepa);
 
-            return false;
+            }
+
+
+
+                return false;
         }
 
         public static void UpdateRecette()
