@@ -1,4 +1,5 @@
-﻿using System;
+﻿using RecetteBuisness;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -29,10 +30,10 @@ namespace App_Recette_Cuisine
 
         public void Button_Click_AddClose(object sender, RoutedEventArgs e)
         {
-            RecetteBuisness.Recette plat = new RecetteBuisness.Recette(0, titre.Text, categorie.Text, tempsprepa.Text, modeprepa.Text, nbrperson.Text,
+            Recette plat = new Recette(0, titre.Text, categorie.Text, tempsprepa.Text, modeprepa.Text, nbrperson.Text,
                                                         ingrédients.Text, url.Text, origine.Text);
 
-            if (RecetteBuisness.RecetteAcess.InsertRecette(plat))
+            if (RecetteAcess.InsertRecette(plat))
             {
                 MessageBox.Show("Les infos client ont bien été envoyés");
             }
@@ -45,10 +46,10 @@ namespace App_Recette_Cuisine
 
         public void Button_Click_Add(object sender, RoutedEventArgs e)
         {
-            RecetteBuisness.Recette plat = new RecetteBuisness.Recette(0, titre.Text, categorie.Text, tempsprepa.Text, modeprepa.Text, nbrperson.Text,
+            Recette plat = new Recette(0, titre.Text, categorie.Text, tempsprepa.Text, modeprepa.Text, nbrperson.Text,
                                                         ingrédients.Text, url.Text, origine.Text);
             //Buisness.clients.Add(phone);
-            if (RecetteBuisness.RecetteAcess.InsertRecette(plat))
+            if (RecetteAcess.InsertRecette(plat))
             {
                 MessageBox.Show("Les infos client ont bien été envoyés");
             }
