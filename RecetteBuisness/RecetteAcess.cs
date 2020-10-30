@@ -2,7 +2,7 @@
 
 namespace RecetteBuisness
 {
-    public class Class1
+    public class RecetteAcess
     {
     }
 }
