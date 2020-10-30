@@ -19,9 +19,11 @@ namespace App_Recette_Cuisine
     /// </summary>
     public partial class WindowAdd : Window
     {
-        public WindowAdd()
+        public MainWindow mw ;
+        public WindowAdd(MainWindow mw)
         {
             InitializeComponent();
+            this.mw = mw;
         }
 
         public void Button_Click_AddClose(object sender, RoutedEventArgs e)
@@ -63,7 +65,7 @@ namespace App_Recette_Cuisine
             modeprepa.Clear();
             nbrperson.Clear();
             ingrédients.Clear();
-            //url ou bouton add images?
+            url.Clear();
             origine.Clear();
         }
 
