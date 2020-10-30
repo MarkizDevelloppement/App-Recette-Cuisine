@@ -24,6 +24,7 @@ namespace App_Recette_Cuisine
         {
             InitializeComponent();
             this.mw = mw;
+
         }
 
         public void Button_Click_AddClose(object sender, RoutedEventArgs e)
