@@ -15,7 +15,7 @@
                 <MenuItem Header="_Quitter" Click="MenuItem_Click_Exit" Background="#FF232E3C"/>
             </MenuItem>
             
-            <MenuItem Header="_Requête" Margin="0,5,0,0" Background="Black" Foreground="White" >
+            <MenuItem Header="_Requêtes" Margin="0,5,0,0" Background="Black" Foreground="White" >
                 <MenuItem Header="Charger la Base de données" Click="MenuItem_Click_LoadBDD" Background="#FF232E3C"/>
                 <MenuItem Header="Sauvegarder dans la Base de données" Click="MenuItem_Click_SaveInBDD" Background="#FF232E3C"/>
                 <MenuItem Header="Mettre à jour la Base de données" Click="MenuItem_Click_UpdateInBDD" Background="#FF232E3C"/>
