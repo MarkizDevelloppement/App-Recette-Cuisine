@@ -5,7 +5,7 @@ using System.Text;
 
 namespace RecetteBuisness
 {
-    class Business
+    public class Business
     {
         //public static ObservableCollection<Recette> Recette { get; }
 

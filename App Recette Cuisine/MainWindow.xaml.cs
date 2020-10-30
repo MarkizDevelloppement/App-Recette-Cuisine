@@ -1,6 +1,7 @@
 ﻿using RecetteBuisness;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -21,15 +22,33 @@ namespace App_Recette_Cuisine
     /// </summary>
     public partial class MainWindow : Window
     {
+        ObservableCollection<Recette> recette = new ObservableCollection<Recette>();
+        private Recette r;
         public MainWindow()
         {
             InitializeComponent();
-            Recette r;
+           
         }
 
         private void ButtonFiltre_Click(object sender, RoutedEventArgs e)
         {
-
+            Business.roulotte.Clear();
+            foreach (var item in Business.roulotte)
+            {
+                if (item.categorie != "")
+                {
+                    try
+                    {
+                        String categorie = (item.categorie);
+                        if (categorie == categorieFiltre.Text)
+                        {
+                            recette.Add(item);
+                        }
+                    }
+                    catch (Exception){}
+                }
+            }
+            Mygrid.ItemsSource = recette;
         }
 
         private void ButtonADD_Click(object sender, RoutedEventArgs e)
@@ -40,7 +59,7 @@ namespace App_Recette_Cuisine
 
         private void New_Click(object sender, RoutedEventArgs e)
         {
-
+            Business.roulotte.Clear();
         }
 
         private void print_Click(object sender, RoutedEventArgs e)
@@ -51,6 +70,32 @@ namespace App_Recette_Cuisine
         private void Quit_Click(object sender, RoutedEventArgs e)
         {
             System.Windows.Application.Current.Shutdown();
+        }
+
+        private void chargerdb_Click(object sender, RoutedEventArgs e)
+        {
+            Business.roulotte.Clear();
+            RecetteAcess.GetAllRecette();
+        }
+
+        private void savedb_Click(object sender, RoutedEventArgs e)
+        {
+            int tailleList = Business.roulotte.Count;
+            for(int i = 0; i < tailleList; i++)
+            {
+                Recette rct = Business.roulotte[i];
+                RecetteAcess.InsertRecette(rct);
+            }
+        }
+
+        private void updatedb_Click(object sender, RoutedEventArgs e)
+        {
+            int tailleList = Business.roulotte.Count;
+            for (int i = 0; i < tailleList; i++)
+            {
+                Recette rct = Business.roulotte[i];
+                RecetteAcess.UpdateRecette(rct);
+            }
         }
     }
 }

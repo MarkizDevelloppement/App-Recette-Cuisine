@@ -14,18 +14,19 @@
                 <Separator />
                 <MenuItem Header="_Quitter" Click="Quit_Click" Background="#FF232E3C"/>
             </MenuItem>
-            
+
             <MenuItem Header="_Requêtes" Margin="0,5,0,0" Background="Black" Foreground="White" >
-                <MenuItem Header="Charger la Base de données" Background="#FF232E3C"/>
-                <MenuItem Header="Sauvegarder dans la Base de données" Background="#FF232E3C"/>
-                <MenuItem Header="Mettre à jour la Base de données" Background="#FF232E3C"/>
+                <MenuItem Click="chargerdb_Click" Header="Charger la Base de données" Background="#FF232E3C"/>
+                <MenuItem Click="savedb_Click" Header="Sauvegarder dans la Base de données" Background="#FF232E3C"/>
+                <MenuItem Click="updatedb_Click" Header="Mettre à jour la Base de données" Background="#FF232E3C"/>
             </MenuItem>
 
         </Menu>
         <Grid>
-            <DataGrid HorizontalAlignment="Left" Height="275" Margin="10,74,0,0" VerticalAlignment="Top" Width="629"/>
+            <DataGrid x:Name="Mygrid" HorizontalAlignment="Left" Height="275" Margin="10,74,0,0" VerticalAlignment="Top" Width="629"/>
             <Button Content="Ajouter une Recette" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="158" Height="35" Click="ButtonADD_Click"/>
-            <Button Content="Afficher par catégorie" HorizontalAlignment="Left" Margin="194,10,0,0" VerticalAlignment="Top" Width="158" Height="35" Click="ButtonFiltre_Click"/>
+            <Button Content="Afficher par catégorie" Margin="0,47,10,0" VerticalAlignment="Top" Height="22" Click="ButtonFiltre_Click" HorizontalAlignment="Right" Width="178"/>
+            <TextBox x:Name="categorieFiltre" HorizontalAlignment="Left" Height="23" Margin="461,19,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="178"/>
 
         </Grid>
     </DockPanel>
