@@ -24,8 +24,8 @@
         </Menu>
         <Grid>
             <DataGrid HorizontalAlignment="Left" Height="275" Margin="10,74,0,0" VerticalAlignment="Top" Width="629"/>
-            <Button Content="Ajouter une Recette" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="158" Height="35"/>
-            <Button Content="Afficher par catégorie" HorizontalAlignment="Left" Margin="194,10,0,0" VerticalAlignment="Top" Width="158" Height="35"/>
+            <Button Content="Ajouter une Recette" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="158" Height="35" Click="Button_Click_Add"/>
+            <Button Content="Afficher par catégorie" HorizontalAlignment="Left" Margin="194,10,0,0" VerticalAlignment="Top" Width="158" Height="35" Click="Button_Click_Filtre"/>
 
         </Grid>
     </DockPanel>

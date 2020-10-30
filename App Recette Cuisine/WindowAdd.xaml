@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:App_Recette_Cuisine"
         mc:Ignorable="d"
-        Title="WindowAdd" Height="525.237" Width="450.789">
+        Title="WindowAdd" Height="576.237" Width="470.789">
 
     <DockPanel>
         <Menu DockPanel.Dock="Top" Height="30" Background="Black">
@@ -16,7 +16,30 @@
             </MenuItem>
 
         </Menu>
-        <Grid>
+        <Grid Width="470">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="0*"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Label Content="AJOUTER UNE RECETTE" HorizontalAlignment="Left" Height="51" Margin="132,22,0,0" VerticalAlignment="Top" Width="198" FontWeight="Bold" Grid.ColumnSpan="2" FontSize="16"/>
+            <Label Content="Titre" HorizontalAlignment="Left" Height="25" Margin="49,95,0,0" VerticalAlignment="Top" Width="82" Grid.ColumnSpan="2"/>
+            <Label Content="Catégorie" HorizontalAlignment="Left" Height="30" Margin="49,125,0,0" VerticalAlignment="Top" Width="82" Grid.ColumnSpan="2"/>
+            <Label Content="Temps de préparation" HorizontalAlignment="Left" Height="25" Margin="49,155,0,0" VerticalAlignment="Top" Width="140" Grid.ColumnSpan="2"/>
+            <Label Content="Mode de préparation" HorizontalAlignment="Left" Height="25" Margin="49,185,0,0" VerticalAlignment="Top" Width="140" Grid.ColumnSpan="2"/>
+            <Label Content="Nombre de personne" HorizontalAlignment="Left" Height="25" Margin="49,215,0,0" VerticalAlignment="Top" Width="140" Grid.ColumnSpan="2"/>
+            <Label Content="Ingrédients" HorizontalAlignment="Left" Height="29" Margin="49,289,0,0" VerticalAlignment="Top" Width="82" Grid.ColumnSpan="2"/>
+            <Label Content="Images" HorizontalAlignment="Left" Height="29" Margin="49,388,0,0" VerticalAlignment="Top" Width="82" Grid.ColumnSpan="2"/>
+            <Label Content="Origine" HorizontalAlignment="Left" Height="29" Margin="49,350,0,0" VerticalAlignment="Top" Width="82" Grid.ColumnSpan="2"/>
+            <TextBox x:Name="titre" HorizontalAlignment="Left" Height="25" Margin="197,95,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="207" BorderBrush="Gray" BorderThickness="1" Grid.ColumnSpan="2"/>
+            <TextBox x:Name="categorie" HorizontalAlignment="Left" Height="25" Margin="197,125,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="207" BorderBrush="Gray" BorderThickness="1" Grid.ColumnSpan="2"/>
+            <TextBox x:Name="tempsprepa" HorizontalAlignment="Left" Height="25" Margin="197,155,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="207" BorderBrush="Gray" BorderThickness="1" Grid.ColumnSpan="2"/>
+            <TextBox x:Name="modeprepa" HorizontalAlignment="Left" Height="25" Margin="197,185,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="207" BorderBrush="Gray" BorderThickness="1" Grid.ColumnSpan="2"/>
+            <TextBox x:Name="nbrperson" HorizontalAlignment="Left" Height="25" Margin="197,215,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="207" BorderBrush="Gray" BorderThickness="1" Grid.ColumnSpan="2"/>
+            <TextBox x:Name="ingrédients" HorizontalAlignment="Left" Height="104" Margin="197,245,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="207" BorderBrush="Gray" BorderThickness="1" Grid.ColumnSpan="2"/>
+            <TextBox x:Name="origine" HorizontalAlignment="Left" Height="25" Margin="197,354,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="207" BorderBrush="Gray" BorderThickness="1" Grid.ColumnSpan="2"/>
+            <Button Content="Ajouter" HorizontalAlignment="Left" Height="31" Margin="49,449,0,0" VerticalAlignment="Top" Width="150" Click="Button_Click_Add" Grid.ColumnSpan="2"/>
+            <Button Content="Ajouter et fermer" HorizontalAlignment="Left" Height="31" Margin="247,449,0,0" VerticalAlignment="Top" Width="157" Click="Button_Click_AddClose" Grid.ColumnSpan="2"/>
+            <Button Content="Ajouter des Images" HorizontalAlignment="Left" Height="31" Margin="197,388,0,0" VerticalAlignment="Top" Width="207" Click="Button_Click_AddPictures" Grid.ColumnSpan="2"/>
 
         </Grid>
     </DockPanel>
