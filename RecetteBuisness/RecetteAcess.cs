@@ -51,8 +51,8 @@ namespace RecetteBuisness
         }
         public static bool InsertRecette(Recette r)
         {
-            string sql = "INSERT INTO recette(id, titre, categorie, tempsprepa, modprepa, nbrperson, ingredient, url, origine) " +
-                         "VALUEs (@id, @titre, @categorie, @tempsprepa, @modeprepa, @nbrprepa, @ingredient, @utrl, @origine)";
+            string sql = "INSERT INTO recette(id, titre, categorie, tempsprepa, modeprepa, nbrperson, ingredient, url, origine) " +
+                         "VALUES (@id, @titre, @categorie, @tempsprepa, @modeprepa, @nbrprepa, @ingredient, @url, @origine)";
             using (MySqlCommand cmd = new MySqlCommand(sql, connection))
             {
                 cmd.Connection.Open();
