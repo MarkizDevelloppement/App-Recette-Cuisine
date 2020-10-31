@@ -27,6 +27,7 @@ namespace App_Recette_Cuisine
         public MainWindow()
         {
             InitializeComponent();
+            Mygrid.ItemsSource = Business.roulotte;
            
         }
 
