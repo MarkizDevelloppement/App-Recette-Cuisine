@@ -75,11 +75,12 @@ namespace RecetteBuisness
 
         public static bool UpdateRecette(Recette r)
         {
-            string sql = "Update recette Set titre=@titre, categorie=@categorie, tempsprepa=@tempsprepa, modeprepa=@modeprepa, " +
+            string sql = "Update recette Set id=@id, titre=@titre, categorie=@categorie, tempsprepa=@tempsprepa, modeprepa=@modeprepa, " +
                          "nbrperson=@nbrperson, ingredient=@ingredient, url=@url, origine=@origine";
             using (MySqlCommand cmd = new MySqlCommand(sql, connection))
             {
                 cmd.Connection.Open();
+                cmd.Parameters.AddWithValue("@id", r.id);
                 cmd.Parameters.AddWithValue("@titre", r.titre);
                 cmd.Parameters.AddWithValue("@categorie", r.categorie);
                 cmd.Parameters.AddWithValue("@tempsprepa", r.tempsprepa);
