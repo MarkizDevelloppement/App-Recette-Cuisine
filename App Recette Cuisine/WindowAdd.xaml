@@ -18,7 +18,7 @@
         </Menu>
         <Grid Width="470">
             <Grid.Background>
-                <ImageBrush ImageSource="EFTU.jpg" Opacity="0.6" Stretch="None"/>
+                <ImageBrush ImageSource="EFTU.jpg" Opacity="0.8"/>
             </Grid.Background>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="0*"/>
