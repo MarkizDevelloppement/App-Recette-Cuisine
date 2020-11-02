@@ -16,15 +16,17 @@
             </MenuItem>
 
         </Menu>
-        <Grid Width="470">
-            <Grid.Background>
-                <ImageBrush ImageSource="EFTU.jpg" Opacity="0.8"/>
-            </Grid.Background>
+        <Grid Width="470" Background="#FFD4D457">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="0*"/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
-            <Label Content="AJOUTER UNE RECETTE" HorizontalAlignment="Left" Height="51" Margin="132,22,0,0" VerticalAlignment="Top" Width="198" FontWeight="Bold" Grid.ColumnSpan="2" FontSize="16"/>
+            <Image Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="90" Margin="114,5,0,0" VerticalAlignment="Top" Width="346" Source="3-recettes-conserves.jpeg" Stretch="Fill">
+                <Image.OpacityMask>
+                    <SolidColorBrush Color="#FF191313" Opacity="0.5"/>
+                </Image.OpacityMask>
+            </Image>
+            <Label Content="AJOUTER UNE RECETTE" HorizontalAlignment="Left" Height="52" Margin="135,26,0,0" VerticalAlignment="Top" Width="198" FontWeight="Bold" Grid.ColumnSpan="2" FontSize="16"/>
             <Label Content="Titre" HorizontalAlignment="Left" Height="25" Margin="49,95,0,0" VerticalAlignment="Top" Width="82" Grid.ColumnSpan="2"/>
             <Label Content="Catégorie" HorizontalAlignment="Left" Height="30" Margin="49,125,0,0" VerticalAlignment="Top" Width="82" Grid.ColumnSpan="2"/>
             <Label Content="Temps de préparation" HorizontalAlignment="Left" Height="25" Margin="49,155,0,0" VerticalAlignment="Top" Width="140" Grid.ColumnSpan="2"/>
@@ -43,6 +45,7 @@
             <Button Content="Ajouter" HorizontalAlignment="Left" Height="31" Margin="49,449,0,0" VerticalAlignment="Top" Width="150" Click="Button_Click_Add" Grid.ColumnSpan="2"/>
             <Button Content="Ajouter et fermer" HorizontalAlignment="Left" Height="31" Margin="247,449,0,0" VerticalAlignment="Top" Width="157" Click="Button_Click_AddClose" Grid.ColumnSpan="2"/>
             <TextBox x:Name="url" HorizontalAlignment="Left" Height="25" Margin="197,384,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="207" BorderBrush="Gray" BorderThickness="1" Grid.ColumnSpan="2"/>
+            <Image Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="90" VerticalAlignment="Top" Width="114" Source="500_F_297915280_ZK7HksK6f5GF7ZgURDs18YgkeecCJ9Tj.jpg" Stretch="Fill"/>
 
         </Grid>
     </DockPanel>

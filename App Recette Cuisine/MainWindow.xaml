@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:App_Recette_Cuisine"
         mc:Ignorable="d"
-        Title="App Recette" Height="450" Width="657" Background="{x:Null}">
+        Title="App Recette" Height="685.167" Width="795.667" Background="{x:Null}">
     <Window.Resources>
 
         <Style x:Key="DatagridRoundStyle" TargetType="{x:Type DataGrid}">
@@ -68,11 +68,9 @@
         </Style>
 
     </Window.Resources>
-    <DockPanel>
-        <Menu DockPanel.Dock="Top" Height="31">
-            <Menu.Background>
-                <SolidColorBrush Color="#FFB8A6A6"/>
-            </Menu.Background>
+    <DockPanel Margin="0,0,0,1">
+        <Menu DockPanel.Dock="Top" Height="31" Background="#FF111010">
+
             <MenuItem  Header="_Fichier" Background="#FF0D1100" Foreground="White" Height="32" Width="91" BorderThickness="2,1,1,1" FontFamily="MV Boli" FontSize="16"  >
                 <MenuItem Header="_Nouveau" Click="New_Click" Background="#FF232E3C" BorderBrush="{x:Null}" Foreground="White"/>
                 <MenuItem Header="_Imprimer" Click="print_Click" Background="#FF232E3C"/>
@@ -86,44 +84,72 @@
             </MenuItem>
 
         </Menu>
-        <Grid>
-
+        <Grid Margin="0,5,0,0" Width="787">
             <Grid.Background>
-                <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
-                    <LinearGradientBrush.RelativeTransform>
-                        <TransformGroup>
-                            <ScaleTransform CenterY="0.5" CenterX="0.5"/>
-                            <SkewTransform CenterY="0.5" CenterX="0.5"/>
-                            <RotateTransform Angle="45" CenterY="0.5" CenterX="0.5"/>
-                            <TranslateTransform/>
-                        </TransformGroup>
-                    </LinearGradientBrush.RelativeTransform>
-                    <GradientStop Color="#FFDCFF00" Offset="0.99"/>
-                    <GradientStop Color="#FF29E816" Offset="0.116"/>
-                    <GradientStop Color="#FF3C9B44" Offset="0.576"/>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="Black" Offset="0"/>
+                    <GradientStop Color="#FF685E5E" Offset="1"/>
                 </LinearGradientBrush>
             </Grid.Background>
 
-            <ListView x:Name="Mygrid" Margin="10,83,10,35">
+            <ListView x:Name ="Mygrid" Margin="10,161,10,20" Background="{x:Null}">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="30*"/>
+                                <RowDefinition Height="29*"/>
+                            </Grid.RowDefinitions>
                             <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="100" />
-                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="713*" />
                             </Grid.ColumnDefinitions>
-                            <Image HorizontalAlignment="Left" Height="100" VerticalAlignment="Top" Width="100" Grid.Column="0" Source="{Binding url}"/>
-                            <Label  Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Top" Width="260" Height="51" FontFamily="Tahoma" Content="{Binding titre}" FontSize="34"/>
-                            <Label  Grid.Column="1" HorizontalAlignment="Left" Margin="180,56,0,0" VerticalAlignment="Top" Width="79" Height="44" Content="{Binding categorie}"/>
+                            <Image Height="147" VerticalAlignment="Top" Grid.Column="0" Source="{Binding url}" Margin="4,74,0,0" HorizontalAlignment="Left" Width="193"/>
+                            <Label VerticalAlignment="Top" Width="194" Height="49" FontFamily="Tahoma" Content="{Binding titre}" FontSize="24" Margin="4,20,515,0" HorizontalAlignment="Center" HorizontalContentAlignment="Center" BorderBrush="#FF00CB37" Padding="5" BorderThickness="1" Background="#FF98FF81"/>
+                            <Label HorizontalAlignment="Left" Margin="304,20,0,0" VerticalAlignment="Top" Width="163" Height="30" Content="{Binding categorie}" FontWeight="Bold" Background="#FFC79A23"/>
+                            <Label HorizontalAlignment="Left" Margin="316,55,0,0" VerticalAlignment="Top" Width="94" Height="30" Content="{Binding tempsprepa}" FontWeight="Bold" Background="#FFC79A23"/>
+                            <TextBlock HorizontalAlignment="Left" Margin="584,22,0,0" VerticalAlignment="Top" Width="119" Height="30" Text="{Binding ingredient}" TextWrapping="Wrap" FontWeight="Bold" Background="#FFC79A23"/>
+                            <Label HorizontalAlignment="Left" Margin="584,56,0,0" VerticalAlignment="Top" Width="119" Height="30" Content="{Binding nbrperson}" FontWeight="Bold" Background="#FFC79A23"/>
+                            <TextBlock HorizontalAlignment="Left" Margin="304,91,0,0" VerticalAlignment="Top" Width="399" Height="93" Text="{Binding modeprepa}" TextWrapping="Wrap" FontWeight="Bold" Background="#FFC79A23"/>
+                            <Label HorizontalAlignment="Left" Margin="304,189,0,0" VerticalAlignment="Top" Width="198" Height="30" Content="{Binding origine}" FontWeight="Bold" Background="#FFC79A23"/>
+                            <Label HorizontalAlignment="Left" Margin="472,22,0,0" VerticalAlignment="Top" Width="107" Height="30" Content="Ingrédient :" FontWeight="Bold" FontSize="11" FontStyle="Italic" Foreground="#FFF7E8E8"/>
+                            <Label HorizontalAlignment="Left" Margin="459,56,0,0" VerticalAlignment="Top" Width="120" Height="30" Content="Nmbr. de personne :" FontWeight="Bold" FontSize="11" FontStyle="Italic" Foreground="#FFF3E5E5"/>
+                            <Label HorizontalAlignment="Left" Margin="203,22,0,0" VerticalAlignment="Top" Width="65" Height="30" Content="Catégorie :" FontWeight="Bold" FontSize="11" FontStyle="Italic" Foreground="#FFF3E5E5"/>
+                            <Label HorizontalAlignment="Left" Margin="203,56,0,0" VerticalAlignment="Top" Width="108" Height="30" Content="Temps de prépa :" FontWeight="Bold" FontSize="11" FontStyle="Italic" Foreground="#FFF3E5E5"/>
+                            <Label HorizontalAlignment="Left" Margin="203,112,0,0" VerticalAlignment="Top" Width="115" Height="30" Content="Mode prépation :" FontWeight="Bold" FontSize="11" FontStyle="Italic" ScrollViewer.CanContentScroll="True" Foreground="#FFF3E5E5"/>
+                            <Label HorizontalAlignment="Left" Margin="203,191,0,0" VerticalAlignment="Top" Width="83" Height="30" Content="Origine :" FontWeight="Bold" FontSize="11" FontStyle="Italic" Foreground="#FFF3E5E5"/>
+                            <Rectangle HorizontalAlignment="Left" Height="240" Stroke="#FFCB6600" VerticalAlignment="Top" Width="713" StrokeThickness="3" Opacity="0.7"/>
                         </Grid>
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
 
-            <Button Content="Ajouter une Recette" HorizontalAlignment="Left" Margin="10,19,0,0" VerticalAlignment="Top" Width="158" Height="35" Click="ButtonADD_Click" Style="{DynamicResource ButtonRondstyle}" Background="#FFDADADA"/>
-            <Button Content="Afficher par catégorie" Margin="0,38,25,0" VerticalAlignment="Top" Height="31" Click="ButtonFiltre_Click" HorizontalAlignment="Right" Width="178" Style="{DynamicResource ButtonRondstyle}"/>
-            <TextBox x:Name="categorieFiltre" Height="23" Margin="0,10,25,0" TextWrapping="Wrap" VerticalAlignment="Top" HorizontalAlignment="Right" Width="178"/>
-            <Image Source="/Image/fork.png" Margin="182,19,0,0" HorizontalAlignment="Left" Width="43" Height="35" VerticalAlignment="Top" />
+            <Image Height="147" Margin="10,0" VerticalAlignment="Top" Source="recette-ramadan-2018.jpg" StretchDirection="UpOnly" Opacity="0.5" Stretch="UniformToFill"/>
+            <Button Content="Ajouter une Recette" Margin="607,19,57,0" VerticalAlignment="Top" Height="34" Click="ButtonADD_Click" Style="{DynamicResource ButtonRondstyle}" RenderTransformOrigin="0.623,2.471">
+                <Button.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FFAA8E8E" Offset="0"/>
+                        <GradientStop Color="#FFBD3030" Offset="1"/>
+                    </LinearGradientBrush>
+                </Button.Background>
+            </Button>
+            <Button Content="Afficher par catégorie" Margin="0,106,76,0" VerticalAlignment="Top" Height="23" Click="ButtonFiltre_Click" HorizontalAlignment="Right" Width="130" Style="{DynamicResource ButtonRondstyle}" RenderTransformOrigin="0.454,1.379">
+                <Button.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FFE29B9B" Offset="0"/>
+                        <GradientStop Color="#FFBD3030" Offset="1"/>
+                    </LinearGradientBrush>
+                </Button.Background>
+            </Button>
+            <TextBox x:Name="categorieFiltre" Height="25" Margin="0,76,57,0" TextWrapping="Wrap" VerticalAlignment="Top" HorizontalAlignment="Right" Width="149" BorderBrush="#FF191818" Background="#FFD1BBBB"/>
+            <Image HorizontalAlignment="Left" Height="147" Margin="334,0,0,0" VerticalAlignment="Top" Width="150" Source="500_F_292990363_ojIADUykY71iG7e1aIlxEMe9x5sPKqjz.jpg"/>
+            <Ellipse HorizontalAlignment="Left" Height="117" Margin="25,12,0,0" Stroke="Black" VerticalAlignment="Top" Width="132">
+                <Ellipse.Fill>
+                    <ImageBrush ImageSource="conception-de-tatouage-polynesien-ornement-indigene-polynesien-antique-400-119673930.jpg"/>
+                </Ellipse.Fill>
+            </Ellipse>
+            <Ellipse HorizontalAlignment="Left" Height="90" Margin="41,26,0,0" Stroke="Black" VerticalAlignment="Top" Width="101" Fill="White"/>
+            <Label Content="Kaikai &#xD;&#xA;metai" HorizontalAlignment="Left" Margin="63,41,0,0" VerticalAlignment="Top" FontSize="16" FontFamily="Comic Sans MS" FontStyle="Italic" FontWeight="Bold" Height="52" Width="60" Background="White"/>
+
         </Grid>
     </DockPanel>
 </Window>

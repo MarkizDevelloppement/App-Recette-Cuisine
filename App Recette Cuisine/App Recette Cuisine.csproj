@@ -171,5 +171,29 @@
   <ItemGroup>
     <Resource Include="Image\fork.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="recette-ramadan-2018.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="fork.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="chef-hat-with-utensils.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="500_F_292990363_ojIADUykY71iG7e1aIlxEMe9x5sPKqjz.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="500_F_297915280_ZK7HksK6f5GF7ZgURDs18YgkeecCJ9Tj.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="menu.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="3-recettes-conserves.jpeg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="conception-de-tatouage-polynesien-ornement-indigene-polynesien-antique-400-119673930.jpg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
