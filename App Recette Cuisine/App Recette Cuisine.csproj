@@ -165,7 +165,9 @@
       <Name>RecetteBuisness</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="EFTU.jpg" />
+  </ItemGroup>
   <ItemGroup>
     <Resource Include="Image\fork.png" />
   </ItemGroup>
