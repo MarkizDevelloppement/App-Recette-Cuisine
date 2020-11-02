@@ -5,17 +5,81 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:App_Recette_Cuisine"
         mc:Ignorable="d"
-        Title="App Recette" Height="450" Width="657">
+        Title="App Recette" Height="450" Width="657" Background="{x:Null}">
+    <Window.Resources>
+
+        <Style x:Key="DatagridRoundStyle" TargetType="{x:Type DataGrid}">
+            <Setter Property="Background" Value="{DynamicResource {x:Static SystemColors.ControlBrushKey}}"/>
+            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+            <Setter Property="BorderBrush" Value="#FF688CAF"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="RowDetailsVisibilityMode" Value="VisibleWhenSelected"/>
+            <Setter Property="ScrollViewer.CanContentScroll" Value="true"/>
+            <Setter Property="ScrollViewer.PanningMode" Value="Both"/>
+            <Setter Property="Stylus.IsFlicksEnabled" Value="False"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type DataGrid}">
+                        <Border CornerRadius="20
+                                "  BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" Padding="{TemplateBinding Padding}" SnapsToDevicePixels="True">
+                            <ScrollViewer x:Name="DG_ScrollViewer" Focusable="false">
+                                <ScrollViewer.Template>
+                                    <ControlTemplate TargetType="{x:Type ScrollViewer}">
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="Auto"/>
+                                                <ColumnDefinition Width="*"/>
+                                                <ColumnDefinition Width="Auto"/>
+                                            </Grid.ColumnDefinitions>
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="Auto"/>
+                                                <RowDefinition Height="*"/>
+                                                <RowDefinition Height="Auto"/>
+                                            </Grid.RowDefinitions>
+                                            <Button Command="{x:Static DataGrid.SelectAllCommand}" Focusable="false" Style="{DynamicResource {ComponentResourceKey ResourceId=DataGridSelectAllButtonStyle, TypeInTargetAssembly={x:Type DataGrid}}}" Visibility="{Binding HeadersVisibility, ConverterParameter={x:Static DataGridHeadersVisibility.All}, Converter={x:Static DataGrid.HeadersVisibilityConverter}, RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}}" Width="{Binding CellsPanelHorizontalOffset, RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}}"/>
+                                            <DataGridColumnHeadersPresenter x:Name="PART_ColumnHeadersPresenter" Grid.Column="1" Visibility="{Binding HeadersVisibility, ConverterParameter={x:Static DataGridHeadersVisibility.Column}, Converter={x:Static DataGrid.HeadersVisibilityConverter}, RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}}"/>
+                                            <ScrollContentPresenter x:Name="PART_ScrollContentPresenter" CanContentScroll="{TemplateBinding CanContentScroll}" Grid.ColumnSpan="2" Grid.Row="1"/>
+                                            <ScrollBar x:Name="PART_VerticalScrollBar" Grid.Column="2" Maximum="{TemplateBinding ScrollableHeight}" Orientation="Vertical" Grid.Row="1" Visibility="{TemplateBinding ComputedVerticalScrollBarVisibility}" Value="{Binding VerticalOffset, Mode=OneWay, RelativeSource={RelativeSource TemplatedParent}}" ViewportSize="{TemplateBinding ViewportHeight}"/>
+                                            <Grid Grid.Column="1" Grid.Row="2">
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="{Binding NonFrozenColumnsViewportHorizontalOffset, RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}}"/>
+                                                    <ColumnDefinition Width="*"/>
+                                                </Grid.ColumnDefinitions>
+                                                <ScrollBar x:Name="PART_HorizontalScrollBar" Grid.Column="1" Maximum="{TemplateBinding ScrollableWidth}" Orientation="Horizontal" Visibility="{TemplateBinding ComputedHorizontalScrollBarVisibility}" Value="{Binding HorizontalOffset, Mode=OneWay, RelativeSource={RelativeSource TemplatedParent}}" ViewportSize="{TemplateBinding ViewportWidth}"/>
+                                            </Grid>
+                                        </Grid>
+                                    </ControlTemplate>
+                                </ScrollViewer.Template>
+                                <ItemsPresenter SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
+                            </ScrollViewer>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <MultiTrigger>
+                    <MultiTrigger.Conditions>
+                        <Condition Property="IsGrouping" Value="true"/>
+                        <Condition Property="VirtualizingPanel.IsVirtualizingWhenGrouping" Value="false"/>
+                    </MultiTrigger.Conditions>
+                    <Setter Property="ScrollViewer.CanContentScroll" Value="false"/>
+                </MultiTrigger>
+            </Style.Triggers>
+        </Style>
+
+    </Window.Resources>
     <DockPanel>
-        <Menu DockPanel.Dock="Top" Height="30" Background="Black">
-            <MenuItem  Header="_Fichier" Margin="0,5,0,0" Background="Black" Foreground="White" >
+        <Menu DockPanel.Dock="Top" Height="31">
+            <Menu.Background>
+                <SolidColorBrush Color="#FFB8A6A6"/>
+            </Menu.Background>
+            <MenuItem  Header="_Fichier" Background="#FF0D1100" Foreground="White" Height="32" Width="91" BorderThickness="2,1,1,1" FontFamily="MV Boli" FontSize="16"  >
                 <MenuItem Header="_Nouveau" Click="New_Click" Background="#FF232E3C" BorderBrush="{x:Null}" Foreground="White"/>
                 <MenuItem Header="_Imprimer" Click="print_Click" Background="#FF232E3C"/>
                 <Separator />
                 <MenuItem Header="_Quitter" Click="Quit_Click" Background="#FF232E3C"/>
             </MenuItem>
-
-            <MenuItem Header="_Requêtes" Margin="0,5,0,0" Background="Black" Foreground="White" >
+            <MenuItem Header="_Requêtes" Background="Black" Foreground="White" Height="32" Width="93" FontFamily="MV Boli" FontSize="16" >
                 <MenuItem Click="chargerdb_Click" Header="Charger la Base de données" Background="#FF232E3C"/>
                 <MenuItem Click="savedb_Click" Header="Sauvegarder dans la Base de données" Background="#FF232E3C"/>
                 <MenuItem Click="updatedb_Click" Header="Mettre à jour la Base de données" Background="#FF232E3C"/>
@@ -23,11 +87,27 @@
 
         </Menu>
         <Grid>
-            <DataGrid x:Name="Mygrid" HorizontalAlignment="Left" Height="275" Margin="10,74,0,0" VerticalAlignment="Top" Width="629"/>
-            <Button Content="Ajouter une Recette" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="158" Height="35" Click="ButtonADD_Click"/>
-            <Button Content="Afficher par catégorie" Margin="0,47,10,0" VerticalAlignment="Top" Height="22" Click="ButtonFiltre_Click" HorizontalAlignment="Right" Width="178"/>
-            <TextBox x:Name="categorieFiltre" HorizontalAlignment="Left" Height="23" Margin="461,19,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="178"/>
 
+            <Grid.Background>
+                <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+                    <LinearGradientBrush.RelativeTransform>
+                        <TransformGroup>
+                            <ScaleTransform CenterY="0.5" CenterX="0.5"/>
+                            <SkewTransform CenterY="0.5" CenterX="0.5"/>
+                            <RotateTransform Angle="45" CenterY="0.5" CenterX="0.5"/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </LinearGradientBrush.RelativeTransform>
+                    <GradientStop Color="#FFDCFF00" Offset="0.99"/>
+                    <GradientStop Color="#FF29E816" Offset="0.116"/>
+                    <GradientStop Color="#FF3C9B44" Offset="0.576"/>
+                </LinearGradientBrush>
+            </Grid.Background>
+            <DataGrid x:Name="Mygrid" Margin="10,90,10,73" Background="#FF978D8D" Style="{DynamicResource DatagridRoundStyle}"/>
+            <Button Content="Ajouter une Recette" HorizontalAlignment="Left" Margin="10,19,0,0" VerticalAlignment="Top" Width="158" Height="35" Click="ButtonADD_Click" Style="{DynamicResource ButtonRondstyle}" Background="#FFDADADA"/>
+            <Button Content="Afficher par catégorie" Margin="0,38,25,0" VerticalAlignment="Top" Height="31" Click="ButtonFiltre_Click" HorizontalAlignment="Right" Width="178" Style="{DynamicResource ButtonRondstyle}"/>
+            <TextBox x:Name="categorieFiltre" Height="23" Margin="0,10,25,0" TextWrapping="Wrap" VerticalAlignment="Top" HorizontalAlignment="Right" Width="178"/>
+            <Image Source="/Image/fork.png" Margin="182,19,0,0" HorizontalAlignment="Left" Width="43" Height="35" VerticalAlignment="Top" />
         </Grid>
     </DockPanel>
 </Window>
