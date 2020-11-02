@@ -22,7 +22,7 @@ namespace App_Recette_Cuisine
     /// </summary>
     public partial class MainWindow : Window
     {
-        ObservableCollection<Recette> recette = new ObservableCollection<Recette>();
+        ObservableCollection<Recette> menu = new ObservableCollection<Recette>();
         private Recette r;
         public MainWindow()
         {
@@ -32,24 +32,32 @@ namespace App_Recette_Cuisine
         }
 
         private void ButtonFiltre_Click(object sender, RoutedEventArgs e)
-        {
-            Business.roulotte.Clear();
-            foreach (var item in Business.roulotte)
+        { 
+
+            if (categorieFiltre.Text != "")
             {
-                if (item.categorie != "")
+                foreach (var item in Business.roulotte)
                 {
-                    try
+                    if (item.categorie != "")
                     {
-                        String categorie = (item.categorie);
-                        if (categorie == categorieFiltre.Text)
+                        try
                         {
-                            recette.Add(item);
+                            String categorie = (item.categorie);
+                            if (categorie == categorieFiltre.Text)
+                            {
+                                menu.Add(item);
+                            }
                         }
+                        catch (Exception) { }
                     }
-                    catch (Exception){}
                 }
+                Mygrid.ItemsSource = menu;
             }
-            Mygrid.ItemsSource = recette;
+            else
+            {
+                Mygrid.ItemsSource = Business.roulotte;
+            }
+            
         }
 
         private void ButtonADD_Click(object sender, RoutedEventArgs e)
@@ -60,6 +68,7 @@ namespace App_Recette_Cuisine
 
         private void New_Click(object sender, RoutedEventArgs e)
         {
+            menu.Clear();
             Business.roulotte.Clear();
         }
 
@@ -76,7 +85,9 @@ namespace App_Recette_Cuisine
         private void chargerdb_Click(object sender, RoutedEventArgs e)
         {
             Business.roulotte.Clear();
+            menu.Clear();
             RecetteAcess.GetAllRecette();
+            Mygrid.ItemsSource = Business.roulotte;
         }
 
         private void savedb_Click(object sender, RoutedEventArgs e)
