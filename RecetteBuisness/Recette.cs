@@ -20,7 +20,7 @@ namespace RecetteBuisness
         public Recette(int id, String titre, String categorie, String tempsprepa, String modeprepa, 
                        String nbrperson, String ingredient, String url, String origine)
         {
-            
+            this.id = id;
             this.titre = titre;
             this.categorie = categorie;
             this.tempsprepa = tempsprepa;
