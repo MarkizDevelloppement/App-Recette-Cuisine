@@ -30,5 +30,10 @@ namespace RecetteBuisness
             this.url = url;
             this.origine = origine;
         }
+
+        public Recette(String url)
+        {
+            this.url = url;
+        }
     }
 }

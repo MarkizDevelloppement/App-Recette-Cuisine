@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace RecetteBuisness
 {
@@ -43,8 +44,28 @@ namespace RecetteBuisness
 
                         // attente de la création de la class business
                         Business.roulotte.Add(new Recette(id, titre, categorie, tempsprepa, modeprepa, nbrperson, ingredient, url, origine));
-
+                        
                     }
+
+                }
+                command.Connection.Close();
+            }
+        }
+
+        public static void GetUrlRecette()
+        {
+            String sql = "SELECT url FROM recette";
+            using (MySqlCommand command = new MySqlCommand(sql, connection))
+            {
+                command.Connection.Open();
+                using (DbDataReader dbReader = command.ExecuteReader())
+                {
+                    
+                    string url = dbReader.GetString(7);
+                    
+
+                    // attente de la création de la class business
+                    Business.roulotte.Add(new Recette(url));    
 
                 }
                 command.Connection.Close();

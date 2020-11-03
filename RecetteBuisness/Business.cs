@@ -11,7 +11,6 @@ namespace RecetteBuisness
     public class Business
     {
         
-
         public static ObservableCollection<Recette> roulotte { get; set; }
 
         static Business()

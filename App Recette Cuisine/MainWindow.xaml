@@ -103,7 +103,23 @@
                     <GradientStop Color="#FF3C9B44" Offset="0.576"/>
                 </LinearGradientBrush>
             </Grid.Background>
-            <DataGrid x:Name="Mygrid" Margin="10,90,10,73" Background="#FF978D8D" Style="{DynamicResource DatagridRoundStyle}"/>
+
+            <ListView x:Name="Mygrid" Margin="10,83,10,35">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="100" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Image HorizontalAlignment="Left" Height="100" VerticalAlignment="Top" Width="100" Grid.Column="0" Source="{Binding url}"/>
+                            <Label  Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Top" Width="260" Height="51" FontFamily="Tahoma" Content="{Binding titre}" FontSize="34"/>
+                            <Label  Grid.Column="1" HorizontalAlignment="Left" Margin="180,56,0,0" VerticalAlignment="Top" Width="79" Height="44" Content="{Binding categorie}"/>
+                        </Grid>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
             <Button Content="Ajouter une Recette" HorizontalAlignment="Left" Margin="10,19,0,0" VerticalAlignment="Top" Width="158" Height="35" Click="ButtonADD_Click" Style="{DynamicResource ButtonRondstyle}" Background="#FFDADADA"/>
             <Button Content="Afficher par catégorie" Margin="0,38,25,0" VerticalAlignment="Top" Height="31" Click="ButtonFiltre_Click" HorizontalAlignment="Right" Width="178" Style="{DynamicResource ButtonRondstyle}"/>
             <TextBox x:Name="categorieFiltre" Height="23" Margin="0,10,25,0" TextWrapping="Wrap" VerticalAlignment="Top" HorizontalAlignment="Right" Width="178"/>
