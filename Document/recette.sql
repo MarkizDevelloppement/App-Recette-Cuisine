@@ -1,54 +1,30 @@
--- phpMyAdmin SQL Dump
--- version 5.0.2
--- https://www.phpmyadmin.net/
---
--- Hôte : 127.0.0.1:3306
--- Généré le : ven. 30 oct. 2020 à 01:09
--- Version du serveur :  5.7.31
--- Version de PHP : 7.3.21
-
-SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-START TRANSACTION;
-SET time_zone = "+00:00";
-
-
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
-
---
--- Base de données : `apprecette`
---
-
--- --------------------------------------------------------
-
---
--- Structure de la table `recette`
---
-
-DROP TABLE IF EXISTS `recette`;
-CREATE TABLE IF NOT EXISTS `recette` (
-  `id` int(155) NOT NULL AUTO_INCREMENT,
-  `titre` varchar(255) NOT NULL,
-  `categorie` varchar(255) NOT NULL,
-  `tempsprepa` varchar(255) NOT NULL,
-  `modeprepa` varchar(256) NOT NULL,
-  `nbrperson` varchar(255) NOT NULL,
-  `ingredient` text NOT NULL,
-  `url` varchar(255) NOT NULL,
-  `origine` varchar(255) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
-
---
--- Déchargement des données de la table `recette`
---
-
-INSERT INTO `recette` (`id`, `titre`, `categorie`, `tempsprepa`, `modeprepa`, `nbrperson`, `ingredient`, `url`, `origine`) VALUES
-(1, 'fafaru', 'poisson', '5mn', 'crue', '3', 'thon, eau de mer', '', 'polynesienne');
-COMMIT;
-
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+<ListView x:Name ="Mygrid" Margin="22,95,25,30" Background="#FFF3EDE5">
+    <ListView.ItemTemplate>
+        <DataTemplate>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="30*"/>
+                    <RowDefinition Height="29*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="713" />
+                </Grid.ColumnDefinitions>
+                <Image Height="147" VerticalAlignment="Top" Grid.Column="0" Source="{Binding url}" Margin="4,74,0,0" HorizontalAlignment="Left" Width="193"/>
+                <Label VerticalAlignment="Top" Width="194" Height="49" FontFamily="Tahoma" Content="{Binding titre}" FontSize="24" Margin="4,20,515,0" HorizontalAlignment="Center" HorizontalContentAlignment="Center" BorderBrush="#FF00CB37" Padding="5" BorderThickness="1" Background="#FF98FF81"/>
+                <Label HorizontalAlignment="Left" Margin="304,20,0,0" VerticalAlignment="Top" Width="163" Height="30" Content="{Binding categorie}" FontWeight="Bold" Background="#FF59FFAB"/>
+                <Label HorizontalAlignment="Left" Margin="316,55,0,0" VerticalAlignment="Top" Width="94" Height="30" Content="{Binding tempsprepa}" FontWeight="Bold" Background="#FF59FFAB"/>
+                <Label HorizontalAlignment="Left" Margin="584,22,0,0" VerticalAlignment="Top" Width="119" Height="30" Content="{Binding modeprepa}" FontWeight="Bold" Background="#FF59FFAB"/>
+                <Label HorizontalAlignment="Left" Margin="584,56,0,0" VerticalAlignment="Top" Width="119" Height="30" Content="{Binding nbrperson}" FontWeight="Bold" Background="#FF59FFAB"/>
+                <Label HorizontalAlignment="Left" Margin="304,91,0,0" VerticalAlignment="Top" Width="399" Height="93" Content="{Binding ingredient}" FontWeight="Bold" BorderBrush="#FFC1EC00" BorderThickness="1" Background="#FF59FFAB"/>
+                <Label HorizontalAlignment="Left" Margin="304,189,0,0" VerticalAlignment="Top" Width="198" Height="30" Content="{Binding origine}" FontWeight="Bold" Background="#FF59FFAB"/>
+                <Label HorizontalAlignment="Left" Margin="472,22,0,0" VerticalAlignment="Top" Width="107" Height="30" Content="Mode de prépa :" FontWeight="Bold" FontSize="11" FontStyle="Italic"/>
+                <Label HorizontalAlignment="Left" Margin="459,56,0,0" VerticalAlignment="Top" Width="120" Height="30" Content="Nmbr. de personne :" FontWeight="Bold" FontSize="11" FontStyle="Italic"/>
+                <Label HorizontalAlignment="Left" Margin="203,22,0,0" VerticalAlignment="Top" Width="65" Height="30" Content="Catégorie :" FontWeight="Bold" FontSize="11" FontStyle="Italic"/>
+                <Label HorizontalAlignment="Left" Margin="203,56,0,0" VerticalAlignment="Top" Width="108" Height="30" Content="Temps de prépa :" FontWeight="Bold" FontSize="11" FontStyle="Italic"/>
+                <Label HorizontalAlignment="Left" Margin="203,112,0,0" VerticalAlignment="Top" Width="115" Height="30" Content="Ingrédients :" FontWeight="Bold" FontSize="11" FontStyle="Italic" ScrollViewer.CanContentScroll="True"/>
+                <Label HorizontalAlignment="Left" Margin="203,191,0,0" VerticalAlignment="Top" Width="83" Height="30" Content="Origine :" FontWeight="Bold" FontSize="11" FontStyle="Italic"/>
+                <Rectangle HorizontalAlignment="Left" Height="240" Stroke="#FF00A6CB" VerticalAlignment="Top" Width="713"/>
+            </Grid>
+        </DataTemplate>
+    </ListView.ItemTemplate>
+</ListView>
